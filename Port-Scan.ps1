@@ -7,20 +7,15 @@
 
     forEach ($i in $range) {
         $ip = "$BaseIP$i"
-
+        
         forEach ($j in $ports){
-
             $port_scan = Test-NetConnection $ip -Port $j
-
+            
             if($port_scan.TcpTestSucceeded -eq $true){
-
                 $machines += $port_scan
-
             }
         }
     }
-
     return $machines
-
 }
 
